@@ -1,8 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"golesson/channels"
+	"golesson/error_handling"
 )
 
 func main() {
@@ -37,11 +36,20 @@ func main() {
 	// time.Sleep(5 * time.Second)
 	// fmt.Println("Main bitti")
 
-	ciftSayiToplamCn := make(chan int)
-	tekSayiToplamCn := make(chan int)
-	go channels.CiftSayilar(ciftSayiToplamCn)
-	go channels.TekSayilar(tekSayiToplamCn)
-	ciftSayiToplam, tekSayiToplam := <-ciftSayiToplamCn, <-tekSayiToplamCn
-	carpim := ciftSayiToplam * tekSayiToplam
-	fmt.Println("Çarpım : ", carpim)
+	// ciftSayiToplamCn := make(chan int)
+	// tekSayiToplamCn := make(chan int)
+	// go channels.CiftSayilar(ciftSayiToplamCn)
+	// go channels.TekSayilar(tekSayiToplamCn)
+	// ciftSayiToplam, tekSayiToplam := <-ciftSayiToplamCn, <-tekSayiToplamCn
+	// carpim := ciftSayiToplam * tekSayiToplam
+	// fmt.Println("Çarpım : ", carpim)
+
+	// interfaces.Demo1()
+	// interfaces.Demo2()
+
+	// defer_statement.B()
+	// defer_statement.Demo2()
+	// defer_statement.Demo3()
+
+	error_handling.Demo1()
 }
