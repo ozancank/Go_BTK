@@ -56,5 +56,6 @@ func main() {
 	// error_handling.Demo2()
 	// error_handling.Demo3()
 
-	string_functions.Demo1()
+	// string_functions.Demo1()
+	string_functions.Demo2()
 }
