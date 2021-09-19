@@ -1,7 +1,7 @@
 package main
 
 import (
-	"golesson/error_handling"
+	"golesson/string_functions"
 )
 
 func main() {
@@ -46,10 +46,15 @@ func main() {
 
 	// interfaces.Demo1()
 	// interfaces.Demo2()
+	// interfaces.Demo3()
 
 	// defer_statement.B()
 	// defer_statement.Demo2()
 	// defer_statement.Demo3()
 
-	error_handling.Demo1()
+	// error_handling.Demo1()
+	// error_handling.Demo2()
+	// error_handling.Demo3()
+
+	string_functions.Demo1()
 }
