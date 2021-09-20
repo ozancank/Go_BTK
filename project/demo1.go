@@ -1,8 +1,8 @@
 package project
 
 import (
+	"bytes"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -19,10 +19,10 @@ type Category struct {
 	CategoryName string `json:"categoryName"`
 }
 
-func GetAllProducts() {
+func GetAllProducts() ([]Product, error) {
 	response, err := http.Get("http://localhost:3000/products")
 	if err != nil {
-		fmt.Println(err)
+		return nil, err
 	}
 
 	defer response.Body.Close()
@@ -31,5 +31,19 @@ func GetAllProducts() {
 
 	var products []Product
 	json.Unmarshal(bodyBytes, &products)
-	fmt.Println(products)
+	return products, nil
+}
+
+func AddProduct() (Product, error) {
+	product := Product{ProductName: "Microphone3", CategoryId: 1, UnitPrice: 2000}
+	jsonProduct, _ := json.Marshal(product)
+	response, err := http.Post("http://localhost:3000/products", "application/json;charset=utf-8", bytes.NewBuffer(jsonProduct))
+	if err != nil {
+		return Product{}, err
+	}
+	defer response.Body.Close()
+	bodyBytes, _ := ioutil.ReadAll(response.Body)
+	var productResponse Product
+	json.Unmarshal(bodyBytes, &productResponse)
+	return productResponse, nil
 }
